@@ -1,0 +1,3 @@
+/*
+Carousel for holding images of Kenny having a grand old time.
+*/

@@ -1,0 +1,3 @@
+/*
+The home page of the site
+*/

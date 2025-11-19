@@ -1,0 +1,3 @@
+/*
+Component to make a social banner for the team.
+*/

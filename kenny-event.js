@@ -1,0 +1,3 @@
+/*
+Component for the events listed on the calendar and home page.
+*/
