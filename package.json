@@ -28,9 +28,17 @@
       "test:watch": "web-test-runner test/**/*.test.js --node-resolve --watch"
     },
     "dependencies": {
+<<<<<<< Updated upstream
       "lit": "3.3.1",
       "@haxtheweb/d-d-d": "^11.0.5",
       "@haxtheweb/i18n-manager": "^11.0.0"
+=======
+        "@haxtheweb/a11y-carousel": "^11.0.0",
+        "@haxtheweb/d-d-d": "^11.0.5",
+        "@haxtheweb/i18n-manager": "^11.0.0",
+        "@haxtheweb/radio-behaviors": "^11.0.5",
+        "lit": "3.3.1"
+>>>>>>> Stashed changes
     },
     "devDependencies": {
       "@babel/preset-env": "^7.16.4",
