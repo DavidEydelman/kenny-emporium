@@ -5,14 +5,13 @@
 import { LitElement, html, css } from "lit";
 import { DDDSuper } from "@haxtheweb/d-d-d/d-d-d.js";
 import { I18NMixin } from "@haxtheweb/i18n-manager/lib/I18NMixin.js";
-import "./kenny-page.js";
-import "./kenny-banner.js";
-import "./kenny-arrow.js"
-import "./kenny-button.js";
+import "./page-boilerplate/kenny-page.js";
+import "./page-boilerplate/kenny-banner.js";
+import "./page-boilerplate/kenny-animated.js";
+import "./page-boilerplate/kenny-button.js";
 import "./kenny-calendar.js";
 import "./kenny-carousel.js";
 import "./kenny-event.js";
-import "./kenny-logo.js";
 import "./kenny-social.js";
 import "./kenny-image.js";
 
@@ -99,7 +98,28 @@ export class KennyApp extends DDDSuper(I18NMixin(LitElement)) {
   // Lit render the HTML
   render() {
     return html`
-      <kenny-banner></kenny-banner>
+
+    <kenny-banner>
+      <kenny-animated 
+        link="/about"
+        slot="logo" 
+        src="https://www.dictionary.com/e/wp-content/uploads/2018/05/cross-mark.png"
+        hoveredSrc="https://cdn-icons-png.flaticon.com/256/8631/8631570.png">
+      </kenny-animated>
+      <kenny-button slot="buttons" label="Schedule" link="/schedule">
+        <a href="/schedule/games">Games</a>
+        <a href="/schedule/practice">Practice</a>
+      </kenny-button>
+      <kenny-button slot="buttons" label="Team" link="/team">
+        <a href="/team/roster">Roster</a>
+        <a href="/team/coaches">Coaches</a>
+      </kenny-button>
+      <kenny-button slot="buttons" label="About" link="/about">
+        <a href="/team/Contact">Contact</a>
+        <a href="/team/mission_statement">Mission Statement</a>
+      </kenny-button>
+    </kenny-banner>
+
       <div class="wrapper">
   
         <kenny-carousel>
