@@ -14,8 +14,8 @@ import "./kenny-carousel.js";
 import "./kenny-event.js";
 import "./kenny-social.js";
 import "./kenny-image.js";
-const kennyHome1 = new URL("/elements/page-boilerplate/images/kenny-home1.png", import.meta.url).href;
-const kennyHome2 = new URL("/elements/page-boilerplate/images/kenny-home2.png", import.meta.url).href;
+const kennyHome1 = new URL("./page-boilerplate/images/kenny-home1.png", import.meta.url).href;
+const kennyHome2 = new URL("./page-boilerplate/images/kenny-home2.png", import.meta.url).href;
 
 /**
  * `kenny-app`
