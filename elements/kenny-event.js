@@ -161,10 +161,28 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
     return [
       super.styles,
       css`
+        /* Light Theme */
+          :host {
+            --bg-color: var(--ddd-theme-default-roarLight);
+            --text-color: var(--ddd-theme-default-landgrantBrown);
+            --accent-color: var(--ddd-theme-default-landgrantBrown);
+            --hover-color: var(--ddd-theme-default-inventOrange);
+            --hover-color-two: var(--ddd-theme-default-potentialMidnight);
+          }
+
+        /* Dark Theme */
+          @media(prefers-color-scheme: dark) {
+            :host {
+              --bg-color: var(--ddd-theme-default-shrineTan);
+              --text-color: var(--ddd-theme-default-roarLight);
+              --accent-color: var(--ddd-theme-default-landgrantBrown);
+              --hover-color: var(--ddd-theme-default-potentialMidnight);
+              --hover-color-two: var(--ddd-theme-default-inventOrange);
+            }
+          }
         :host {
           display: block;
-          color: var(--ddd-theme-primary);
-          background-color: var(--ddd-theme-accent);
+          color: var(--text-color);
           font-family: var(--ddd-font-navigation);
         }
 
@@ -184,9 +202,9 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
           align-items: center;
           margin-bottom: var(--ddd-spacing-3);
           padding: var(--ddd-spacing-2);
-          background-color: var(--ddd-theme-default-landgrantBrown);
+          background-color: var(--bg-color);
           border-radius: 8px;
-          border: 1px solid var(--ddd-theme-default-potentialMidnight);
+          border: 1px solid var(--accent-color);
         }
 
         .week-range {
@@ -202,7 +220,7 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
 
         button {
           padding: var(--ddd-spacing-2) var(--ddd-spacing-3);
-          background-color: var(--ddd-theme-default-potentialMidnight);
+          background-color: var(--accent-color);
           color: white;
           border: none;
           border-radius: 8px;
@@ -212,7 +230,7 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         button:hover {
-          background-color: var(--ddd-theme-default-original87Pink);
+          background-color: var(--hover-color);
         }
 
         button:active {
@@ -220,11 +238,11 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .today-button {
-          background-color: var(--ddd-theme-default-potentialMidnight);
+          background-color: var(--accent-color);
         }
 
         .today-button:hover {
-          background-color: var(--ddd-theme-default-wonderPurple);
+          background-color: var(--hover-color-two);
         }
 
         .week-grid {
@@ -234,11 +252,11 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .day-column {
-          border: 1px solid var(--ddd-theme-default-potentialMidnight);
+          border: 1px solid var(--accent-color);
           border-radius: 8px;
           padding: var(--ddd-spacing-2);
           min-height: 150px;
-          background-color: var(--ddd-theme-default-landgrantBrown);
+          background-color: var(--bg-color);
           transition: box-shadow 0.2s;
         }
 
@@ -247,16 +265,16 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .day-column.today {
-          border-color: var(--ddd-theme-default-potentialMidnight);
-          border-width: 2px;
-          background-color: var(--ddd-theme-default-landgrantBrown);
-          box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+          border-color: var(--hover-color);
+          border-width: 3px;
+          background-color: var(--bg-color);
+          box-shadow: 0 0 16px rgba(0, 0, 0, 0.3);
         }
 
         .day-header {
           text-align: center;
           padding-bottom: var(--ddd-spacing-2);
-          border-bottom: 1px solid var(--ddd-theme-default-potentialMidnight);
+          border-bottom: 1px solid var(--accent-color);
           margin-bottom: var(--ddd-spacing-2);
         }
 
@@ -276,7 +294,7 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
         }
 
         .day-column.today .day-number {
-          color: var(--ddd-theme-default-potentialMidnight);
+          color: var(--ddd-theme-accent);
         }
 
         .events-list {
@@ -287,10 +305,10 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
 
         .event-item {
           font-size: var(--ddd-font-size-xs);
-          background-color: var(--ddd-theme-default-skyLight);
+          background-color: var(--bg-color);
           padding: var(--ddd-spacing-1);
           border-radius: 8px;
-          border-left: 3px solid var(--ddd-theme-default-potentialMidnight);
+          border-left: 3px solid var(--accent-color);
           word-wrap: break-word;
         }
 
