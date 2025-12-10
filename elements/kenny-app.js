@@ -137,7 +137,7 @@ export class KennyApp extends DDDSuper(I18NMixin(LitElement)) {
             </kenny-carousel>
 
             <p>Check out our upcoming events:</p>
-            <kenny-calendar></kenny-calendar>
+            <kenny-event></kenny-event>
           </kenny-page>
         `;
 
