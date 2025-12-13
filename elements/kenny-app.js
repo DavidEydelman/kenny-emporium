@@ -10,6 +10,7 @@ import "./kenny-calendar.js";
 import "./kenny-carousel.js";
 import "./kenny-event.js";
 import "./kenny-image.js";
+import "./kenny-roster.js";
 
 /**
  * `kenny-app`
@@ -84,9 +85,21 @@ export class KennyApp extends DDDSuper(I18NMixin(LitElement)) {
     if (this.route.startsWith("/team")) {
       return html`
         <kenny-page page="team">
-          <h2>Meet the Team!</h2>
+          <h1>Meet the Team!</h1>
           <p>Our amazing players and staff who make everything possible.</p>
-          <kenny-image src="/api/kenny-images.json"></kenny-image>
+          <h2>Team Roster:</h2>
+            <kenny-roster .members=${[
+              { name: "Kevin", role: "Team Captain", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQKDMvNNxt5xBaMjvH4fFjSuLmNmwlr9MZY0A&s" },
+              { name: "Kelly", role: "Vice Captain", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTjkNNc9V6GrtvTOEMKsBUnkzgxKAOIMc0b_A&s" },
+              { name: "Kenigh", role: "Player", image: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMO5tBUmtPgMb0s0212UtvVugrNRSSF51XVQ&s" },
+              { name: "Katie", role: "Player", image: "https://i.pinimg.com/736x/aa/85/8c/aa858cf7bc1e60cacee74d86a4f3c642.jpg" },
+              { name: "Kole", role: "Player", image: "https://yt3.googleusercontent.com/tZEE4MH8dd40YIJVPmnAIklUf9K0bQMjtixoC0eGRXAZw0WkgkqqvPSMb-Bz89LIulDuQYVZlYg=s900-c-k-c0x00ffffff-no-rj" },
+            ]}></kenny-roster>
+          <h2>Coaches:</h2>
+            <kenny-roster .members=${[
+              { name: "Kenny", role: "Head Coach", image: "https://pbs.twimg.com/media/EY8h23uX0AAjg7L.jpg" },
+              { name: "Knox", role: "Assistant Coach", image: "https://www.whosampled.com/static/images/media/track_images_200/lr157999_2022719_19376551213.jpg" },
+            ]}></kenny-roster>
         </kenny-page>
       `;
     }
@@ -97,7 +110,15 @@ export class KennyApp extends DDDSuper(I18NMixin(LitElement)) {
           <h2>About Kenny Sports</h2>
           <p>Kenny Sports is dedicated to promoting sportsmanship, teamwork, and excellence in athletics. 
             Our mission is to provide a supportive environment for athletes of all levels to grow and succeed.</p>
-          <kenny-image src="/api/kenny-images.json"></kenny-image>
+          <kenny-carousel>
+            <kenny-image src="/api/kenny-images.json"></kenny-image>
+          </kenny-carousel>
+          <h2>Contact Us!</h2>
+          <p>
+             Email: kennysportsinc@gmail.com <br>
+             Phone: (555) 123-4567 <br>
+             Address: 1234 Sports Lane, Athletic City, AS 56789 <br>
+          </p>
         </kenny-page>
       `;
     }

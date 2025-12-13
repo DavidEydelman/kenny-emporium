@@ -28,12 +28,10 @@ export class KennySocial extends DDDSuper(LitElement) {
   static get styles() {
     return [super.styles,
     css`
-
-       /* Light Theme */
        :host {
           display: block;
           width: 100%;
-          margin-top: auto; /* this is fine */
+          margin-top: auto; 
           background-color: var(--bg-color);
           color: var(--text-color);
         }
