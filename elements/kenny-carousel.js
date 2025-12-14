@@ -58,8 +58,9 @@ export class KennyCarousel extends LitElement {
     .slide {
       position: relative;
       display: none;
-      width: 400px;
-      height: 300px;
+      width: 100%;
+      max-width: 400px;
+      aspect-ratio: 4 / 3;
       margin: 0 auto;
       overflow: hidden;
       border: 1px solid var(--border-color);
@@ -79,21 +80,29 @@ export class KennyCarousel extends LitElement {
       object-fit: cover;
     }
 
+    /* Buttons stay inside the slide */
     button {
       position: absolute;
       top: 50%;
       transform: translateY(-50%);
       background: var(--ddd-theme-accent);
       border: none;
-      font-size: 24px;
-      padding: 8px 12px;
+      font-size: 22px;
+      padding: 6px 10px;
       cursor: pointer;
       color: var(--bg-color);
+      border-radius: 50%;
+      opacity: 0.85;
     }
 
+    button.prev {
+      left: 8px;
+    }
 
-    button.prev { left: 0; }
-    button.next { right: 0; }
+    button.next {
+      right: 8px;
+    }
+
   `;
 
 render() {
@@ -125,7 +134,7 @@ render() {
   startAutoSlide() {
     this._timer = setInterval(() => {
       this.next();
-    }, 5000); // 5000ms = 5 seconds
+    }, 10000); // 1000ms = 1 second
   }
 
   resetTimer() {
