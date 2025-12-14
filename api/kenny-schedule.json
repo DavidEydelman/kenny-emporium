@@ -1,0 +1,61 @@
+{
+    "kenny-schedule": [
+        {
+            "id": 1,
+            "name": "Practice Session",
+            "date": "2025-12-10",
+            "location": "Emporium, PA",
+            "description": "Weekly practice session for skill improvement and team coordination."
+        },
+        {
+            "id": 2,
+            "name": "Practice Session",
+            "date": "2025-12-12",
+            "location": "Emporium, PA",
+            "description": "Final practice session before the big game."
+        },
+        {
+            "id": 3,
+            "name": "Game Day vs. Rivals",
+            "date": "2025-12-13",
+            "location": "Emporium, PA",
+            "description": "Home game against our biggest rivals. Let's bring the energy!"
+        },
+        {
+            "id": 4,
+            "name": "Team Meeting",
+            "date": "2025-12-15",
+            "location": "Emporium, PA",
+            "description": "Post-game analysis and strategy planning for upcoming matches."
+        },
+        {
+            "id": 5,
+            "name": "Practice Session",
+            "date": "2025-12-17",
+            "location": "Emporium, PA",
+            "description": "Weekly practice session for skill improvement and team coordination."
+        },{
+            "id": 6,
+            "name": "Practice Session",
+            "date": "2025-12-19",
+            "location": "Emporium, PA",
+            "description": "Final practice session before the big game."
+        },
+        {
+            "id": 7,
+            "name": "Game Day vs. Challengers",
+            "date": "2025-12-20",
+            "location": "Emporium, PA",
+            "description": "Exciting match against the Challengers. Support the team!"
+        },
+        {
+            "id": 8,
+            "name": "Team Outing",
+            "date": "2025-12-22",
+            "location": "Local Park, Emporium, PA",
+            "description": "Fun day out for team bonding and relaxation."
+        }
+ 
+    ]
+        
+}

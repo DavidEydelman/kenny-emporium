@@ -76,8 +76,6 @@ export class KennyApp extends DDDSuper(I18NMixin(LitElement)) {
 
           <p>Events coming up!</p>
           <kenny-event></kenny-event>
-          <kenny-event></kenny-event>
-          <kenny-event></kenny-event>
         </kenny-page>
       `;
     }

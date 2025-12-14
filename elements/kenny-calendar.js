@@ -49,12 +49,20 @@ export class KennyCalendar extends DDDSuper(I18NMixin(LitElement)) {
 
   async _fetchEvents() {
     try {
-      const response = await fetch("/api/events");
+      // Changed to kenny-schedule API
+      const response = await fetch("/api/kenny-schedule");
       const data = await response.json();
-      // Expect: [{ title, date, ... }]
-      this.events = Array.isArray(data) ? data : [];
+      
+      // Map the data to match expected format
+      this.events = Array.isArray(data) 
+        ? data.map(e => ({
+            ...e,
+            title: e.title || e.name,
+            date: e.date
+          }))
+        : [];
     } catch (e) {
-      console.warn("Failed to fetch events", e);
+      console.warn("Failed to fetch events from kenny-schedule API", e);
       this.events = [];
     }
   }
@@ -74,9 +82,15 @@ export class KennyCalendar extends DDDSuper(I18NMixin(LitElement)) {
 
     for (let day = 1; day <= daysInMonth; day++) {
       const date = new Date(year, month, day);
-      const dayEvents = this.events.filter(
-        (event) => new Date(event.date).toDateString() === date.toDateString()
-      );
+      const dayYear = date.getFullYear();
+      const dayMonth = date.getMonth() + 1;
+      const dayDate = date.getDate();
+      
+      const dayEvents = this.events.filter((event) => {
+        // Parse YYYY-MM-DD format as local date
+        const [eventYear, eventMonth, eventDay] = event.date.split('-').map(Number);
+        return eventYear === dayYear && eventMonth === dayMonth && eventDay === dayDate;
+      });
 
       days.push(html`
         <div class="calendar-day">

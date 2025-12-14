@@ -48,11 +48,20 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
 
   async _fetchEvents() {
     try {
-      const response = await fetch("/api/events");
+      // Changed to kenny-schedule API
+      const response = await fetch("/api/kenny-schedule");
       const data = await response.json();
-      this.events = Array.isArray(data) ? data : [];
+      
+      // Map the data to match expected format
+      this.events = Array.isArray(data) 
+        ? data.map(e => ({
+            ...e,
+            title: e.title || e.name,
+            date: e.date
+          }))
+        : [];
     } catch (e) {
-      console.warn("Failed to fetch events", e);
+      console.warn("Failed to fetch events from kenny-schedule API", e);
       this.events = [];
     }
   }
@@ -102,9 +111,15 @@ export class KennyEvent extends DDDSuper(I18NMixin(LitElement)) {
    * Get events for a specific date
    */
   _getEventsForDate(date) {
-    return this.events.filter(
-      (event) => new Date(event.date).toDateString() === date.toDateString()
-    );
+    const year = date.getFullYear();
+    const month = date.getMonth() + 1;
+    const day = date.getDate();
+    
+    return this.events.filter((event) => {
+      // Parse YYYY-MM-DD format as local date
+      const [eventYear, eventMonth, eventDay] = event.date.split('-').map(Number);
+      return eventYear === year && eventMonth === month && eventDay === day;
+    });
   }
 
   /**
